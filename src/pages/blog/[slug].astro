@@ -9,17 +9,20 @@ export const getStaticPaths = async () => {
   });
   return paths;
 };
-
 const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
 <MainLayout title="about page">
-  <header><a href="/about">back</a></header>
-  <main><h1>{post.data.title}</h1>
-    <Image src={post.data.image} alt={post.data.image}/ height={1024} width={1024/2}>
+  <div class="lg:w-10/12  mx-auto my-16">
+  <header><a href="/blog">back</a></header>
+  <main>
+    <h1 class=" text-5xl lg:text-6xl  font-bold text-primary text-left md:text-center my-8">{post.data.title}</h1>
+    <Image  class="w-screen object-contain mx-auto mb-12" src={post.data.image} alt={post.data.image} height="370" width="370"/>
   </main>
-  <div class="prose prose-2xl">
+  
+  <div class="lg:w-10/12 lg:mx-auto prose prose:w-screen prose:mx-auto prose-xl  text-bodyText prose-h1:text-left prose-headings:text-primary prose-img:rounded-xl prose-img:mx-auto">
   <Content />
+</div>
 </div>
 </MainLayout>

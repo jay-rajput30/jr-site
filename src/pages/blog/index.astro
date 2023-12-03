@@ -1,14 +1,18 @@
 ---
+import {Image} from "astro:assets"
 import MainLayout from "../../layouts/main.layout.astro";
 import { getCollection } from "astro:content";
 const posts = await getCollection("posts");
 ---
 
 <MainLayout title="home page">
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col lg:flex-row md:flex-wrap gap-4 flex-2 content-start lg:text-2xl my-8 lg:my-12 lg:w-10/12 mx-auto">
     {
       posts.map((post) => {
-        return <a href={`/blog/${post.slug}`}>{post.data.title}</a>;
+        return <a href={`/blog/${post.slug}`} class="border-solid border-2 border-borderStroke rounded-t-md rounded-b-md md:w-1/2 lg:w-1/4 lg:h-fit" >
+          <Image class="w-screen  rounded-t-md" src={post.data.image} alt={post.data.image} height={1024/2} width={1024/4}/>
+          <p class="text-lg lg:text-2xl p-2 ">{post.data.title}</p>
+          </a>;
       })
     }
   </div>

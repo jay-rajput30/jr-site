@@ -14,15 +14,18 @@ const TECHNOLOGIES = [
 ---
 
 <MainLayout title="home page">
-  <div class="px-2 flex flex-col gap-6 flex-2">
-    <h1 class="text-xl">
+  <div class="px-2 flex flex-col gap-6 md:mx-auto flex-2 justify-evenly md:w-1/2">
+    <div>
+    <h1 class="text-xl lg:text-4xl">
       <span class="font-sans font-bold">Hello!</span> I am Jay Rajput, a <span
         class="font-sans font-bold text-primary"
         >full-stack developer
       </span>
        based from Mumbai, India
     </h1>
-    <p>I specialize in turning ideas and concepts into interactive realities</p>
+    <p class="lg:text-xl">I specialize in turning ideas and concepts into interactive realities</p>
+  </div>
+  <div class="lg:text-2xl">
     <p>technologies I know:</p>
     <!-- React, Node, Express, TypeScript, Redux,
     Next.js, Framer Motion, Styled Components, and Tailwind CSS. -->
@@ -37,6 +40,7 @@ const TECHNOLOGIES = [
         })
       }
     </div>
-    <a href="/blog" class="underline text-lg">checkout my blogs</a>
+  </div >
+    <a href="/blog" class="underline text-lg  lg:text-2xl">checkout my blogs</a>
   </div>
 </MainLayout>
