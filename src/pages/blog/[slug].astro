@@ -1,0 +1,25 @@
+---
+import {Image} from "astro:assets"
+import MainLayout from "../../layouts/main.layout.astro";
+import { getCollection } from "astro:content";
+export const getStaticPaths = async () => {
+  const posts = await getCollection("posts");
+  const paths = posts.map((post) => {
+    return { params: { slug: post.slug }, props: { post } };
+  });
+  return paths;
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<MainLayout title="about page">
+  <header><a href="/about">back</a></header>
+  <main><h1>{post.data.title}</h1>
+    <Image src={post.data.image} alt={post.data.image}/ height={1024} width={1024/2}>
+  </main>
+  <div class="prose prose-2xl">
+  <Content />
+</div>
+</MainLayout>
